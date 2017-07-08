@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "mss-chat2",
-=======
   "name": "AppChat",
->>>>>>> 7cc4e6afca97a8db923ea0c30a8ba02616bde900
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -25,13 +21,6 @@
   "dependencies": {
     "expo": "^18.0.3",
     "react": "16.0.0-alpha.12",
-<<<<<<< HEAD
     "react-native": "^0.45.1"
   }
 }
-=======
-    "react-native": "^0.45.1",
-    "react-native-vector-icons": "^4.2.0"
-  }
-}
->>>>>>> 7cc4e6afca97a8db923ea0c30a8ba02616bde900

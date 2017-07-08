@@ -3,8 +3,6 @@ import { StyleSheet, Text, View,
 		TouchableOpacity, Image, StatusBar}
 from 'react-native';
 
-import Icon from 'react-native-vector-icons/MaterialIcons';
-
 export default class Contacts extends Component {
   	render() {
 		return (

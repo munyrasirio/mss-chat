@@ -1,5 +1,15 @@
 {
-  "expo": {
-    "sdkVersion": "18.0.0"
-  }
+    "expo": {
+	    "name": "MSS Chat",
+	    "icon": "./src/img/icon.png",
+	    "version": "1.0.0",
+	    "slug": "msschat",
+	    "sdkVersion": "18.0.0",
+	    "ios": {
+	      	"bundleIdentifier": "com.github.munyrasirio.msschat"
+    	},
+	    "android": {
+	      	"package": "com.github.munyrasirio.msschat"
+	    }
+   	}
 }
