@@ -1,10 +1,8 @@
 ﻿import React, { Component } from 'react';
 import { StyleSheet, Text, View,
-		TouchableOpacity, Image,
-		StatusBar, FlatList,
-		TextInput }
-from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+		 Image, FlatList, TextInput } from 'react-native';
+import { Menu, PhotoButton, Name, MenuItem } from '../component';
+
 import avatar from '../img/avatar1.jpg';
 import background from '../img/background.jpg';
 
@@ -20,27 +18,21 @@ export default class Chat extends Component {
 			input: ''
 		}
 	}
+
+	back() {
+		this.props.navigation.goBack()
+	}
+
   	render() {
 		return (
             <View style={styles.page}>
-            	<View style={{height: StatusBar.currentHeight, backgroundColor: 'black'}}/>
-                <View style={styles.menu}>
-                	<TouchableOpacity style={styles.buttonBack}>
-                		<Icon style={styles.button} name='headset'/>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonPhoto}>
-                        <Image style={styles.buttonImg} source={avatar}/>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonName}>
-                        <Text style={styles.button}>Name</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonMedia}>
-                		<Icon style={styles.button} name='headset'/>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonMenu}>
-                		<Icon style={styles.button} name='headset'/>
-                    </TouchableOpacity>
-                </View>
+                <Menu>
+                	<MenuItem name='chevron-left' onPress={this.back.bind(this)}/>
+                    <PhotoButton source={avatar}/>
+                    <Name name="Friend's name"/>
+                    <MenuItem name='attachment' onPress={this.back.bind(this)}/>
+                    <MenuItem name='dots-three-horizontal' onPress={this.back.bind(this)}/>
+                </Menu>
 
                 <View style={styles.chatbox}>
                 	<Image source={background} style={styles.backgroundImage}>
@@ -67,9 +59,7 @@ export default class Chat extends Component {
                 </View>
 
                 <View style={styles.textBox}>
-					<TouchableOpacity style={styles.buttonEmo}>
-                		<Icon style={styles.button} name='headset'/>
-                    </TouchableOpacity>
+					<MenuItem name='emoji-happy' onPress={this.back.bind(this)}/>
                     <View style={styles.textInput}>
                     	<TextInput
 					    	style={{borderColor: 'gray', borderWidth: 1}}
@@ -77,9 +67,7 @@ export default class Chat extends Component {
 					    	value={this.state.input}
 					    />
                     </View>
-					<TouchableOpacity style={styles.buttonSend}>
-                		<Icon style={styles.button} name='headset'/>
-                    </TouchableOpacity>
+					<MenuItem name='paper-plane' onPress={this.back.bind(this)}/>
                 </View>
             </View>
 		);
@@ -89,18 +77,6 @@ export default class Chat extends Component {
 const styles = StyleSheet.create({
 	page: {
 		flex: 100
-	},
-
-	menu: {
-		height: 50,
-		flexDirection: 'row',
-		backgroundColor: '#1a237e',
-		justifyContent: 'center'
-	},
-
-	button: {
-		color: 'white',
-		fontSize: 20
 	},
 
 	chatbox: {
@@ -116,52 +92,8 @@ const styles = StyleSheet.create({
 	textBox: {
 		height: 50,
 		flexDirection: 'row',
-		backgroundColor: 'white'
+		backgroundColor: '#eaebfb'
 	},
-
-
-	/*MENU VIEW*/
-	buttonBack: {
-		width: 40,
-		alignItems: 'center',
-		justifyContent: 'center',
-		backgroundColor: 'green'
-	},
-
-	buttonPhoto: {
-		width: 60,
-		alignItems: 'center',
-		justifyContent: 'center',
-		padding: 2
-	},
-
-	buttonImg: {
-		flex: 1,
-		resizeMode: 'contain',
-		borderRadius: 150
-	},
-	
-	buttonName: {
-		flex: 1,
-		justifyContent: 'center',
-		paddingLeft: 5,
-		backgroundColor: 'red'
-	},
-
-	buttonMedia: {
-		width: 40,
-		justifyContent: 'center',
-		alignItems: 'center',
-		backgroundColor: 'darksalmon'
-	},
-
-	buttonMenu: {
-		width: 40,
-		justifyContent: 'center',
-		alignItems: 'center',
-		backgroundColor: 'darkred'
-	},
-
 
 	/*BALLOON VIEW*/
 	sender: {
@@ -189,21 +121,7 @@ const styles = StyleSheet.create({
 
 
 	/*INPUT VIEW*/
-	buttonEmo: {
-		width: 40,
-		justifyContent: 'center',
-		alignItems: 'center',
-		backgroundColor: 'blueviolet'
-	},
-
-	buttonSend: {
-		width: 40,
-		justifyContent: 'center',
-		alignItems: 'center',
-		backgroundColor: 'chocolate'
-	},
-
 	textInput: {
-		flex: 1,
+		flex: 1
 	}
 });
