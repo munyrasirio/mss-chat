@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 	buttonBox: {
 		width: 40,
 		alignItems: 'center',
-		justifyContent: 'center',
+		justifyContent: 'center'
 	},
 
 	button: {

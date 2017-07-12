@@ -1,7 +1,9 @@
 ﻿import React, { Component } from 'react';
 import { StyleSheet, Text, View,
-		 Image, FlatList, TextInput } from 'react-native';
-import { Menu, PhotoButton, Name, MenuItem } from '../component';
+		 Image, FlatList, TextInput,
+		 TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/Entypo';
+import { Menu, PhotoBack, Name, MenuItem } from '../component';
 
 import avatar from '../img/avatar1.jpg';
 import background from '../img/background.jpg';
@@ -27,8 +29,7 @@ export default class Chat extends Component {
 		return (
             <View style={styles.page}>
                 <Menu>
-                	<MenuItem name='chevron-left' onPress={this.back.bind(this)}/>
-                    <PhotoButton source={avatar}/>
+                	<PhotoBack source={avatar}/>
                     <Name name="Friend's name"/>
                     <MenuItem name='attachment' onPress={this.back.bind(this)}/>
                     <MenuItem name='dots-three-horizontal' onPress={this.back.bind(this)}/>
@@ -59,15 +60,20 @@ export default class Chat extends Component {
                 </View>
 
                 <View style={styles.textBox}>
-					<MenuItem name='emoji-happy' onPress={this.back.bind(this)}/>
-                    <View style={styles.textInput}>
+					<TouchableOpacity style={styles.buttonBox} onPress={this.props.onPress}>
+        				<Icon style={styles.button} name='emoji-happy'/>
+            		</TouchableOpacity>
+            		<View style={styles.textInput}>
                     	<TextInput
-					    	style={{borderColor: 'gray', borderWidth: 1}}
+					    	style={{paddingLeft: 10, paddingBottom: 3, fontSize: 20}}
+					    	placeholder='Type here...'
 					    	onChangeText={(text) => this.setState({input: text})}
 					    	value={this.state.input}
 					    />
                     </View>
-					<MenuItem name='paper-plane' onPress={this.back.bind(this)}/>
+					<TouchableOpacity style={styles.buttonBox} onPress={this.props.onPress}>
+        				<Icon style={styles.button} name='paper-plane'/>
+            		</TouchableOpacity>
                 </View>
             </View>
 		);
@@ -92,7 +98,7 @@ const styles = StyleSheet.create({
 	textBox: {
 		height: 50,
 		flexDirection: 'row',
-		backgroundColor: '#eaebfb'
+		backgroundColor: 'white'
 	},
 
 	/*BALLOON VIEW*/
@@ -121,7 +127,19 @@ const styles = StyleSheet.create({
 
 
 	/*INPUT VIEW*/
+	buttonBox: {
+		width: 40,
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+
+	button: {
+		color: 'gray',
+		fontSize: 20
+	},
+
 	textInput: {
-		flex: 1
+		flex: 1,
+		justifyContent: 'flex-end'
 	}
 });

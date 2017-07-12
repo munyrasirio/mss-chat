@@ -6,11 +6,11 @@ import Contacts from './src/page/Contacts';
 import Chat from './src/page/Chat';
 
 const ROUTES = StackNavigator({
-	chat: {
-		screen: Chat
-	},
 	contacts: {
 		screen: Contacts
+	},
+	chat: {
+		screen: Chat
 	}
 }, {
 	headerMode: 'none'

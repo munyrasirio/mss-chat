@@ -4,7 +4,7 @@ import { StyleSheet, TouchableOpacity, Image } from 'react-native';
 export default class PhotoButton extends Component {
   	render() {
 		return (
-			<TouchableOpacity style={styles.buttonPhoto}>
+			<TouchableOpacity style={styles.buttonPhoto} onPress={this.props.onPress}>
                 <Image style={styles.buttonImg} source={this.props.source}/>
             </TouchableOpacity>
 		);
@@ -27,9 +27,11 @@ const styles = StyleSheet.create({
 })
 
 PhotoButton.defaulProps = {
-	source: null
+	source: null,
+	onPress: null
 }
 
 PhotoButton.propTypes = {
-	source: React.PropTypes.string.isRequired
+	source: React.PropTypes.func.isRequired,
+	onPress: React.PropTypes.func.isRequired
 }
