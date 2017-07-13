@@ -4,14 +4,18 @@ import { View, StatusBar } from 'react-native';
 
 import Contacts from './src/page/Contacts';
 import Chat from './src/page/Chat';
+import Config from './src/page/Config';
 
 const ROUTES = StackNavigator({
+	config: {
+		screen: Config
+	},
 	contacts: {
 		screen: Contacts
 	},
 	chat: {
 		screen: Chat
-	}
+	},
 }, {
 	headerMode: 'none'
 })
@@ -26,6 +30,5 @@ export default class App extends Component {
 		)
 	}
 }
-
 
 /*this.props.navigation.state.params.contact*/

@@ -12,7 +12,13 @@ export default class Contact extends Component {
 						<View style={styles.photoBox}>
 		                	<Image style={styles.photo} source={this.props.source}/>
 		                </View>
-		               	<Text style={styles.name}>{this.props.name}</Text>
+		                <View style={{flex: 1, flexDirection: 'column'}}>
+		                	<View style={{flex: 1, flexDirection: 'row'}}>
+		               			<Text style={styles.name}>{this.props.name}</Text>
+		               			<Text style={styles.date}>{this.props.date}</Text>
+		               		</View>
+		               		<Text style={styles.lastMessage}>{this.props.lastMessage}</Text>
+		               	</View>
 		            </View>
 		            <Hr/>
 		        </View>
@@ -55,18 +61,38 @@ const styles = StyleSheet.create({
 	name: {
 		flex: 1,
 		paddingLeft: 5,
-		fontSize: 20
+		marginTop: 10,
+		fontSize: 18
+	},
+
+	date: {
+		right: 30,
+		marginTop: 15,
+		fontSize: 13,
+		color: 'gray'
+	},
+
+	lastMessage: {
+		maxWidth: 300,
+		paddingBottom: 7,
+		paddingLeft: 5,
+		fontSize: 14,
+		color: 'gray'
 	}
 })
 
 Contact.defaulProps = {
 	source: null,
 	name: null,
+	date: null,
+	lastMessage: null,
 	onPress: null
 }
 
 Contact.propTypes = {
 	source: React.PropTypes.func.isRequired,
 	name: React.PropTypes.string.isRequired,
+	date: React.PropTypes.string.isRequired,
+	lastMessage: React.PropTypes.string.isRequired,
 	onPress: React.PropTypes.func.isRequired
 }

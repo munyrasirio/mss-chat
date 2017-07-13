@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, FlatList } from 'react-native';
-import { Menu, Name, MenuItem, Contact, Hr } from '../component';
+import { Menu, Name, MenuItem, Contact } from '../component';
 
 import logo from '../img/icon.png';
 import avatar2 from '../img/avatar2.jpg';
@@ -42,7 +42,14 @@ export default class Contacts extends Component {
                 	<FlatList
 						data={data}
 						renderItem={({item, index}) => {
-							return <Contact key={index} source={item.source} name={item.name} onPress={this.back.bind(this)}/>
+							return <Contact
+								key={index}
+								source={item.source}
+								name={item.name}
+								date='23:00'
+								lastMessage='Lorem ipsum dolor sit amet.'
+								onPress={this.back.bind(this)}
+							/>
 		                }}
 					/>
                 </View>
@@ -53,7 +60,7 @@ export default class Contacts extends Component {
 
 const styles = StyleSheet.create({
 	page: {
-		flex: 100
+		flex: 1
 	},
 
 	contactList: {

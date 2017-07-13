@@ -13,16 +13,22 @@ export default class PhotoButton extends Component {
 
 const styles = StyleSheet.create({
 	buttonPhoto: {
-		width: 60,
 		alignItems: 'center',
 		justifyContent: 'center',
-		padding: 2
+		width: 60,
+		height: 60,
+		marginLeft: 10,
+		marginRight: 5,
+		marginTop: 10,
+		borderWidth: 1,
+		borderRadius: 50,
+		borderColor: 'lightgray'
 	},
 
 	buttonImg: {
 		flex: 1,
 		resizeMode: 'contain',
-		borderRadius: 150
+		borderRadius: 50
 	}
 })
 

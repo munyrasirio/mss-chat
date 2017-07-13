@@ -7,7 +7,7 @@ export default class Hr extends Component {
 			<View style=
                 {{  height: 1,
                     marginLeft: 80,
-                    marginRight: 50,
+                    marginRight: 30,
                     paddingBottom: 5,
                     borderColor: 'lightgray',
                     borderBottomWidth: 1,

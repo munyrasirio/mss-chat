@@ -82,15 +82,15 @@ export default class Chat extends Component {
 
 const styles = StyleSheet.create({
 	page: {
-		flex: 100
+		flex: 1
 	},
 
 	chatbox: {
-		flex: 90,
+		flex: 9,
 	},
 
 	backgroundImage: {
-		flex: 90,
+		flex: 9,
 		height: null,
 		width: null,
 	},
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
 
 	/*BALLOON VIEW*/
 	sender: {
-		flex: 10,
+		flex: 1,
 		maxHeight: 100,
 		justifyContent: 'center',
 		alignItems: 'flex-end'
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
 	},
 
 	receiver: {
-		flex: 10,
+		flex: 1,
 		maxHeight: 100,
 		justifyContent: 'center',
 		alignItems: 'flex-start'
