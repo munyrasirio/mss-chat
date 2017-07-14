@@ -43,6 +43,8 @@ const styles = StyleSheet.create({
 	},
 
 	photoBox: {
+				backgroundColor: 'red',
+
 		width: 60,
 		height: 60,
 		borderColor: 'lightgray',

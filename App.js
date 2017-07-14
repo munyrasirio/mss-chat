@@ -7,15 +7,15 @@ import Chat from './src/page/Chat';
 import Config from './src/page/Config';
 
 const ROUTES = StackNavigator({
-	config: {
-		screen: Config
-	},
 	contacts: {
 		screen: Contacts
 	},
 	chat: {
 		screen: Chat
 	},
+	config: {
+		screen: Config
+	}
 }, {
 	headerMode: 'none'
 })

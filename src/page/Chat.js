@@ -12,25 +12,35 @@ export default class Chat extends Component {
 	constructor() {
 		super();
 		this.state = {
-			data: 	[{sender: 'Olar'}, {receiver: 'Olar'}, {sender: 'Tar bein?//'},
-					{receiver: 'Tor!1'}, {sender: 'Entaum tar.'}, {sender: 'Vou ali fritar uns beico, depois levo pra você. vlw flw.'},
-					{receiver: 'Eu gosto de beico, manda o kg..'}, {sender: 'Só metade, pode ser?'}, {receiver: 'Pode, né.'},
-					{sender: 'Tchêau.'}, {receiver: 'Fica, tem bolo'}, {sender: 'Midira, tem nada.'},
-					{sender: 'vlw, flw.'}],
 			input: ''
 		}
+	}
+
+	componentWillMount() {
+		let contact = this.props.navigation.state.params;
+		this.setState({name: contact.name, source: contact.source, chat: contact.chat});
 	}
 
 	back() {
 		this.props.navigation.goBack()
 	}
 
+	submit() {
+		if (this.state.input !== '') {
+			let newChat = Object.assign([], this.state.chat);
+
+			newChat.push({sender: this.state.input});
+			this.setState({input: '', chat: newChat});
+		}
+	}
+
   	render() {
+  		
 		return (
             <View style={styles.page}>
                 <Menu>
-                	<PhotoBack source={avatar}/>
-                    <Name name="Friend's name"/>
+                	<PhotoBack source={this.state.source} onPress={this.back.bind(this)}/>
+                    <Name name={this.state.name}/>
                     <MenuItem name='attachment' onPress={this.back.bind(this)}/>
                     <MenuItem name='dots-three-horizontal' onPress={this.back.bind(this)}/>
                 </Menu>
@@ -38,7 +48,7 @@ export default class Chat extends Component {
                 <View style={styles.chatbox}>
                 	<Image source={background} style={styles.backgroundImage}>
 	                	<FlatList
-						  data={this.state.data}
+						  data={this.state.chat}
 						  renderItem={({item, index}) => {
 								  	if(item.sender) {
 								  		return (
@@ -67,11 +77,12 @@ export default class Chat extends Component {
                     	<TextInput
 					    	style={{paddingLeft: 10, paddingBottom: 3, fontSize: 20}}
 					    	placeholder='Type here...'
+					    	onSubmitEditing={this.submit.bind(this)}
 					    	onChangeText={(text) => this.setState({input: text})}
 					    	value={this.state.input}
 					    />
                     </View>
-					<TouchableOpacity style={styles.buttonBox} onPress={this.props.onPress}>
+					<TouchableOpacity style={styles.buttonBox} onPress={this.submit.bind(this)}>
         				<Icon style={styles.button} name='paper-plane'/>
             		</TouchableOpacity>
                 </View>

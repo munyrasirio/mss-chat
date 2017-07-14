@@ -12,20 +12,20 @@ export default class Contacts extends Component {
 		this.props.navigation.navigate('chat', {contact: 'Thiago'})
 	}*/
 
-	back() {
-		this.props.navigation.goBack()
+	config() {
+		this.props.navigation.navigate('config')
+	}
+
+	contact(item) {
+		this.props.navigation.navigate('chat', item)
 	}
 
   	render() {
-
-
   		let data = []
   		for (var i = 0; i < 10; i++) {
-  			data.push({name: 'My Friend', source: avatar2});
-  			data.push({name: 'My Friend', source: avatar1});
-
+  			data.push({name: 'Guy', source: avatar2, chat: []});
+  			data.push({name: 'Girl', source: avatar1, chat: []});
   		}
-
 
 		return (
 			<View style={styles.page}>
@@ -34,8 +34,8 @@ export default class Contacts extends Component {
                     	<Image style={styles.img} source={logo}/>
                     </View>
                     <Name name='MSS Chat'/>
-                	<MenuItem name='magnifying-glass' onPress={this.back.bind(this)}/>
-                	<MenuItem name='cog' onPress={this.back.bind(this)}/>
+                	<MenuItem name='magnifying-glass' onPress={() => {}}/>
+                	<MenuItem name='cog' onPress={this.config.bind(this)}/>
                 </Menu>
 
                 <View style={styles.contactList}>
@@ -48,7 +48,7 @@ export default class Contacts extends Component {
 								name={item.name}
 								date='23:00'
 								lastMessage='Lorem ipsum dolor sit amet.'
-								onPress={this.back.bind(this)}
+								onPress={() => {this.contact(item)}}
 							/>
 		                }}
 					/>
@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
 
 	contactList: {
 		flex: 1,
+		backgroundColor: 'white',
 		flexDirection: 'column'
 	},
 
